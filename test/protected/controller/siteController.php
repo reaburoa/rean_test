@@ -1,6 +1,6 @@
 <?php
 
-class siteController extends \Jaf\web\CController
+class siteController/* extends \Jaf\web\CController*/
 {
     public function indexAction()
     {
