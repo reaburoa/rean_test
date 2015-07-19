@@ -1,7 +1,10 @@
 <?php
-    namespace curlmanager;
+namespace Jaf\web;
+use Jaf;
 
-    class CUrlManager
-    {
-
+class CUrlManager
+{
+    public function test(){
+        echo '<br />url manager';
     }
+}

@@ -1,28 +1,28 @@
 <?php
-use \Jaf\Jaf;
+namespace Jaf;
 
-define('ROOT', dirname(__FILE__));
+define('JAF_PATH', dirname(__FILE__));
 
 class JafBase
 {
-    private static $autoLoadFiles = '';
+    public static $autoLoadFiles = array();
 
-    public static function autoLoad()
+    public static function autoload($className)
     {
-        self::$autoLoadFiles = include_once(dirname(__FILE__).'/config/autoLoadFiles.php');
-        if(isset(self::$autoLoadFiles) && is_array(self::$autoLoadFiles)){
-            foreach(self::$autoLoadFiles as $value){
-                include(ROOT.$value.'.php');
-            }
+        if(isset(self::$autoLoadFiles[$className])){
+            $classFiles = JAF_PATH.self::$autoLoadFiles[$className];
         }
-        return true;
+        else{
+            return;
+        }
+        include($classFiles);
     }
 
-    public static function run()
+    public static function creatApplication($config)
     {
-
-        echo 'this is framework';
+        return new \Jaf\web\CWebApplication($config);
     }
 }
 
-spl_autoload_register(array('JafBase', 'autoLoad'));
+\Jaf\JafBase::$autoLoadFiles = require(dirname(__FILE__).'/config/autoLoadFiles.php');
+spl_autoload_register(array('\Jaf\JafBase', 'autoload'), true, true);

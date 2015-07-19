@@ -1,5 +1,6 @@
 <?php
-use Jaf\Jaf;
+namespace Jaf\auth;
+use Jaf;
 
 class CUserIdentity
 {
