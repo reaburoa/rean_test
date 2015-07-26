@@ -1,7 +1,7 @@
 <?php
-    require(dirname(__FILE__).'/JafBase.php');
+require(dirname(__FILE__).'/JafBase.php');
 
-    class Jaf extends \Jaf\JafBase
-    {
+class Jaf extends \Jaf\JafBase
+{
 
-    }
+}
