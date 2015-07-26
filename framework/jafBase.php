@@ -7,6 +7,8 @@ class JafBase
 {
     public static $autoLoadFiles = array();
 
+    public static $app;
+
     public static function autoload($className)
     {
         if(isset(self::$autoLoadFiles[$className])){

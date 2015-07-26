@@ -5,6 +5,7 @@ use Jaf;
 class CHttpRequest
 {
     private $_route;
+    private $_defaultController = 'site';
 
     public function getRequest($route = '')
     {

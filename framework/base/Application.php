@@ -8,6 +8,7 @@ class CWebApplication
 
     public function __construct($config)
     {
+        Jaf::$app = $this;
         if(isset($config['basePath'])){
             $this->setBasePath($config['basePath']);
         }
