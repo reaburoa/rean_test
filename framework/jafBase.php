@@ -24,6 +24,14 @@ class JafBase
     {
         return new \Jaf\web\CWebApplication($config);
     }
+
+    public static function configure($object, $properties)
+    {
+        foreach ($properties as $name => $value) {
+            $object->$name = $value;
+        }
+        return $object;
+    }
 }
 
 \Jaf\JafBase::$autoLoadFiles = require(dirname(__FILE__).'/config/autoLoadFiles.php');

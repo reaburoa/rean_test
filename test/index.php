@@ -2,5 +2,6 @@
     $jaf = dirname(__FILE__).'/../framework/jaf.php';
     $config = dirname(__FILE__).'/protected/config/config.php';
     require_once($jaf);
-    Jaf::creatApplication($config);
-
+    $application = new Jaf\base\Application($config);
+    $application->run();
+Jaf::$app->getRequest();

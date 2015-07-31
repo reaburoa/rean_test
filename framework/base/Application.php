@@ -1,40 +1,50 @@
 <?php
-namespace Jaf\web;
+namespace Jaf\base;
 use Jaf;
 
-class CWebApplication
+class Application extends Model
 {
-    private static $_basePath = '';
-
     public function __construct($config)
     {
         Jaf::$app = $this;
-        if(isset($config['basePath'])){
-            $this->setBasePath($config['basePath']);
-        }
-        else{
-            $this->setBasePath('protected');
-        }
+        $this->preInit();
+    }
 
-        $this->getRequest();
+    public function preInit()
+    {
+
     }
 
     public function setBasePath($path)
     {
-        self::$_basePath = $path;
+        //self::$_basePath = $path;
     }
 
     public function getRequest()
-    {
-        $httpRequest = new \Jaf\web\CHttpRequest();
+    {echo 'request123';
+        /*$httpRequest = new \Jaf\web\CHttpRequest();
         $route = $httpRequest->getRequest();
         list($model, $id) = $httpRequest->parseUrl($route);
         $controller = new \Jaf\web\CController($model, $id);
-        $controller->run();
+        $controller->run();*/
     }
 
     public static function getBasePath()
     {
-        return self::$_basePath;
+        //return self::$_basePath;
+    }
+
+    public function run()
+    {
+        var_dump(Jaf::$app);
+    }
+
+    public function coreComponents()
+    {
+        return array(
+            'UrlManager' => array('class' => 'Jaf\web\UrlManager'),
+            'View' => array('class' => 'Jaf\web\View'),
+            'HttpRequest' => array('class' => 'Jaf\web\HttpRequest')
+        );
     }
 }
