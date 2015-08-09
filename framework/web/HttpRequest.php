@@ -2,7 +2,7 @@
 namespace Jaf\web;
 use Jaf;
 
-class CHttpRequest
+class HttpRequest
 {
     private $_route;
     private $_defaultController = 'site';
@@ -17,16 +17,5 @@ class CHttpRequest
         }
 
         return $this->_route;
-    }
-
-    public function parseUrl($route = '')
-    {
-        if(strpos($route, '?') !== false){
-            $realUrlInfo = substr($route, 1, strpos($route, '?') - 1);
-        }
-        else{
-            $realUrlInfo = substr($route, 1);
-        }
-        return explode('/', $realUrlInfo);
     }
 }

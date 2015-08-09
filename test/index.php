@@ -4,4 +4,3 @@
     require_once($jaf);
     $application = new Jaf\base\Application($config);
     $application->run();
-Jaf::$app->getRequest();

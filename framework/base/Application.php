@@ -2,7 +2,7 @@
 namespace Jaf\base;
 use Jaf;
 
-class Application extends Model
+class Application extends Module
 {
     public function __construct($config)
     {
@@ -12,7 +12,9 @@ class Application extends Model
 
     public function preInit()
     {
-
+        foreach ($this->coreComponents() as $key => $components) {
+            Model::set($key, $components);
+        }
     }
 
     public function setBasePath($path)
@@ -21,12 +23,13 @@ class Application extends Model
     }
 
     public function getRequest()
-    {echo 'request123';
-        /*$httpRequest = new \Jaf\web\CHttpRequest();
-        $route = $httpRequest->getRequest();
-        list($model, $id) = $httpRequest->parseUrl($route);
-        $controller = new \Jaf\web\CController($model, $id);
-        $controller->run();*/
+    {
+        return Model::get('HttpRequest');
+    }
+
+    public function getUrlManager()
+    {
+        return Model::get('UrlManager');
     }
 
     public static function getBasePath()
@@ -36,7 +39,9 @@ class Application extends Model
 
     public function run()
     {
-        var_dump(Jaf::$app);
+        $request = $this->getRequest()->getRequest();
+        $module = $this->getUrlManager()->parseUrl($request);
+        var_dump(Module::createController($module['controller']));
     }
 
     public function coreComponents()

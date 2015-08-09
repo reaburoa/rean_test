@@ -16,7 +16,7 @@ class Model
         }
 
         if (isset($this->_definition[$id])) {
-            return $this->_definition[$id] = Jaf::createObject($this->_definition[$id]);
+            return Jaf::createObject($this->_definition[$id]);
         }
         else {
             return null;
@@ -25,6 +25,12 @@ class Model
 
     public function set($id, $components)
     {
+        $this->_definition[$id] = $components;
+    }
 
+    public static function createController($controller)
+    {//print_r(get_called_class());exit;
+        $controller .= 'Controller';
+        return Jaf::createObject('\\test\\controller\\'.$controller);
     }
 }

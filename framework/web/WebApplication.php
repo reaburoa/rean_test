@@ -2,7 +2,7 @@
 namespace Jaf\web;
 use Jaf;
 
-class CWebApplication
+class WebApplication extends \Jaf\base\Application
 {
     private static $_basePath = '';
 
@@ -26,7 +26,7 @@ class CWebApplication
 
     public function getRequest()
     {
-        $httpRequest = new \Jaf\web\CHttpRequest();
+        $httpRequest = new \Jaf\web\HttpRequest();
         $route = $httpRequest->getRequest();
         list($model, $id) = $httpRequest->parseUrl($route);
         $controller = new \Jaf\web\CController($model, $id);

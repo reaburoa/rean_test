@@ -1,6 +1,8 @@
 <?php
 namespace Jaf;
 
+use Jaf\di\Container;
+
 define('JAF_PATH', dirname(__FILE__));
 
 class JafBase
@@ -31,6 +33,16 @@ class JafBase
             $object->$name = $value;
         }
         return $object;
+    }
+
+    public static function createObject($type, array $params = array())
+    {
+        if (is_string($type)) {
+            return Container::get($type);
+        }
+        else {
+            return Container::get($type['class']);
+        }
     }
 }
 

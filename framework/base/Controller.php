@@ -1,8 +1,8 @@
 <?php
-namespace Jaf\web;
+namespace Jaf\base;
 use Jaf;
 
-class CController
+class Controller
 {
     private $_model = '';
     private $_id = '';
@@ -17,7 +17,7 @@ class CController
     {
         $realController = $this->_model.'Controller';
         $realAction = $this->_id.'Action';
-        $basePath = CWebApplication::getBasePath();
+        $basePath = WebApplication::getBasePath();
         $path = $basePath.'/controller/'.$realController.'.php';
         if(file_exists($path)){
             include($path);
