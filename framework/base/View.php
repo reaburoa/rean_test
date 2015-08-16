@@ -1,9 +1,8 @@
 <?php
-
 namespace Jaf\base;
 use Jaf;
 
-class Model
+class View extends Jaf\base\Base
 {
 
 }

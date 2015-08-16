@@ -2,7 +2,7 @@
 namespace Jaf\base;
 use Jaf;
 
-class Object
+class Base extends Jaf\base\Service
 {
     public function __construct($config = array())
     {
@@ -16,4 +16,5 @@ class Object
     {
 
     }
+
 }

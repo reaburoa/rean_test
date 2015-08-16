@@ -2,10 +2,11 @@
 namespace Jaf\base;
 use Jaf;
 
-class Application extends Module
+class Application extends Jaf\base\Base
 {
     public function __construct($config)
     {
+        parent::__construct($config);
         Jaf::$app = $this;
         $this->preInit();
     }
@@ -13,7 +14,7 @@ class Application extends Module
     public function preInit()
     {
         foreach ($this->coreComponents() as $key => $components) {
-            Model::set($key, $components);
+            Jaf\base\Service::set($key, $components['class']);
         }
     }
 
@@ -24,12 +25,12 @@ class Application extends Module
 
     public function getRequest()
     {
-        return Model::get('HttpRequest');
+        return Jaf\base\Service::get('Http');
     }
 
     public function getUrlManager()
     {
-        return Model::get('UrlManager');
+        return Jaf\base\Service::get('UrlManager');
     }
 
     public static function getBasePath()
@@ -40,7 +41,7 @@ class Application extends Module
     public function run()
     {
         $request = $this->getRequest()->getRequest();
-        $module = $this->getUrlManager()->parseUrl($request);
+        $module = $this->getUrlManager()->parseUrl($request);//print_r($module);exit;
         var_dump(Module::createController($module['controller']));
     }
 
@@ -49,7 +50,8 @@ class Application extends Module
         return array(
             'UrlManager' => array('class' => 'Jaf\web\UrlManager'),
             'View' => array('class' => 'Jaf\web\View'),
-            'HttpRequest' => array('class' => 'Jaf\web\HttpRequest')
+            'Http' => array('class' => 'Jaf\web\Http'),
+            'User' => array('class' => 'Jaf\web\User')
         );
     }
 }

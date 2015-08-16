@@ -1,11 +1,18 @@
 <?php
 namespace Jaf\base;
-use Jaf;
 
-class Module
+use Jaf;
+use Jaf\base\Base;
+
+class Module extends Base
 {
+    public function getPath()
+    {
+
+    }
+
     public static function createController($controller)
-    {//print_r(get_called_class());exit;
+    {
         $controller .= 'Controller';
         return Jaf::createObject('\\test\\controller\\'.$controller);
     }

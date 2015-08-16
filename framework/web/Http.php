@@ -2,7 +2,7 @@
 namespace Jaf\web;
 use Jaf;
 
-class HttpRequest
+class Http
 {
     private $_route;
     private $_defaultController = 'site';

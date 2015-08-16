@@ -2,7 +2,7 @@
 namespace Jaf\auth;
 use Jaf;
 
-class CUserIdentity
+class User
 {
     public function cuser()
     {

@@ -1,7 +1,8 @@
 <?php
 namespace Jaf;
 
-use Jaf\di\Container;
+use Jaf\base\Base;
+use Jaf\base\Service;
 
 define('JAF_PATH', dirname(__FILE__));
 
@@ -38,13 +39,13 @@ class JafBase
     public static function createObject($type, array $params = array())
     {
         if (is_string($type)) {
-            return Container::get($type);
+            return Service::get($type);
         }
         else {
-            return Container::get($type['class']);
+            return Service::get($type['class']);
         }
     }
 }
 
-\Jaf\JafBase::$autoLoadFiles = require(dirname(__FILE__).'/config/autoLoadFiles.php');
+\Jaf\JafBase::$autoLoadFiles = require(dirname(__FILE__).'/config/autoLoad.php');
 spl_autoload_register(array('\Jaf\JafBase', 'autoload'), true, true);

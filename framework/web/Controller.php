@@ -2,17 +2,8 @@
 namespace Jaf\web;
 use Jaf;
 
-class Controller extends \Jaf\base\Controller
+class Controller implements \Jaf\base\Controller
 {
-    private $_model = '';
-    private $_id = '';
-
-    public function __construct($model, $id)
-    {
-        $this->_model = $model;
-        $this->_id = $id;
-    }
-
     public function run()
     {
         $realController = $this->_model.'Controller';
@@ -29,7 +20,7 @@ class Controller extends \Jaf\base\Controller
         $obj->$realAction();
     }
 
-    public function getControlle()
+    public function getController()
     {
         return $this->_model;
     }
