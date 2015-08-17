@@ -6,18 +6,7 @@ class Controller implements \Jaf\base\Controller
 {
     public function run()
     {
-        $realController = $this->_model.'Controller';
-        $realAction = $this->_id.'Action';
-        $basePath = WebApplication::getBasePath();
-        $path = $basePath.'/controller/'.$realController.'.php';
-        if(file_exists($path)){
-            include($path);
-        }
-        else{
-            throw new \Exception('No '.$path.' file');
-        }
-        $obj = new $realController();
-        $obj->$realAction();
+
     }
 
     public function getController()

@@ -36,7 +36,10 @@ class Service
 
     public function runAction($request)
     {
-        $con = 'site';echo $this->controllerNamespace."\\".$con."Controller";
-        var_dump(class_exists($this->controllerNamespace."\\".$con."Controller"));exit;
+        $con = 'site';
+        include dirname(__File__).'/../../test/protected/controllers/siteController.php';
+        $reflection = new \ReflectionClass($this->controllerNamespace."\\".$con."Controller");
+        $obj = $reflection->newInstance();
+        $obj->indexAction();
     }
 }
