@@ -10,7 +10,7 @@ return array(
 
     'Jaf\web\Controller' => '/web/Controller.php',
     'Jaf\web\UrlManager' => '/web/UrlManager.php',
-    'Jaf\web\WebApplication' => '/web/WebApplication.php',
+    'Jaf\web\Application' => '/web/Application.php',
     'Jaf\web\Http' => '/web/Http.php',
     'Jaf\auth\User' => '/web/User.php'
 );

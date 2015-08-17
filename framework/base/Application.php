@@ -48,10 +48,7 @@ class Application extends Jaf\base\Base
     public function coreComponents()
     {
         return array(
-            'UrlManager' => array('class' => 'Jaf\web\UrlManager'),
-            'View' => array('class' => 'Jaf\web\View'),
-            'Http' => array('class' => 'Jaf\web\Http'),
-            'User' => array('class' => 'Jaf\web\User')
+            'UrlManager' => array('class' => 'Jaf\web\UrlManager')
         );
     }
 }

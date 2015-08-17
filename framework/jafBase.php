@@ -2,7 +2,6 @@
 namespace Jaf;
 
 use Jaf\base\Base;
-use Jaf\base\Service;
 
 define('JAF_PATH', dirname(__FILE__));
 
@@ -23,11 +22,6 @@ class JafBase
         include($classFiles);
     }
 
-    public static function creatApplication($config)
-    {
-        return new \Jaf\web\CWebApplication($config);
-    }
-
     public static function configure($object, $properties)
     {
         foreach ($properties as $name => $value) {
@@ -39,10 +33,10 @@ class JafBase
     public static function createObject($type, array $params = array())
     {
         if (is_string($type)) {
-            return Service::get($type);
+            return Base::get($type);
         }
         else {
-            return Service::get($type['class']);
+            return Base::get($type['class']);
         }
     }
 }

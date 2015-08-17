@@ -1,8 +1,8 @@
 <?php
-namespace test\controller;
-//use Jaf\web\Controller;
+namespace app\controllers;
+use Jaf\web\Controller;
 
-class siteController //extends Controller
+class siteController extends Controller
 {
     public function indexAction()
     {

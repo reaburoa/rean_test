@@ -1,5 +1,6 @@
 <?php
 
     return array(
-        'basePath' => dirname(__FILE__).'/../protected/'
+        'basePath' => dirname(__FILE__).'/../protected/',
+        'controllerNamespace' => 'app\controllers'
     );
