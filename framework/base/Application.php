@@ -2,7 +2,7 @@
 namespace Jaf\base;
 use Jaf;
 
-class Application extends Jaf\base\Base
+abstract class Application extends Jaf\base\Base
 {
     public function __construct($config)
     {
@@ -33,6 +33,8 @@ class Application extends Jaf\base\Base
         return Jaf\base\Service::get('UrlManager');
     }
 
+    abstract public function handleRequest($request);
+
     public static function getBasePath()
     {
         //return self::$_basePath;
@@ -42,7 +44,8 @@ class Application extends Jaf\base\Base
     {
         $request = $this->getRequest()->getRequest();
         $module = $this->getUrlManager()->parseUrl($request);//print_r($module);exit;
-        var_dump(Module::createController($module['controller']));
+        $this->handleRequest($request);
+        //var_dump(Module::createController($module['controller']));
     }
 
     public function coreComponents()

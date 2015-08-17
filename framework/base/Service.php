@@ -19,8 +19,8 @@ class Service
 
     public function init()
     {
-        $con = 'site';echo $this->controllerNamespace."\\".$con."Controller";exit;
-        var_dump(class_exists($this->controllerNamespace."\\".$con."Controller"));
+        /*$con = 'site';echo $this->controllerNamespace."\\".$con."Controller";
+        var_dump(class_exists($this->controllerNamespace."\\".$con."Controller"));exit;*/
     }
 
     public static function set($name, $value)
@@ -32,5 +32,11 @@ class Service
     {
         $reflection = new \ReflectionClass(self::$_coreComponents[$class]);
         return $reflection->newInstance();
+    }
+
+    public function runAction($request)
+    {
+        $con = 'site';echo $this->controllerNamespace."\\".$con."Controller";
+        var_dump(class_exists($this->controllerNamespace."\\".$con."Controller"));exit;
     }
 }

@@ -2,5 +2,5 @@
 
     return array(
         'basePath' => dirname(__FILE__).'/../protected/',
-        'controllerNamespace' => 'app\controllers'
+        'controllerNamespace' => 'test\controllers'
     );

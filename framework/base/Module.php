@@ -14,6 +14,6 @@ class Module extends Base
     public static function createController($controller)
     {
         $controller .= 'Controller';
-        return Jaf::createObject('\\test\\controller\\'.$controller);
+        return Jaf::createObject('\\test\\controllers\\'.$controller);
     }
 }
