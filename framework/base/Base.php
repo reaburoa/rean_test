@@ -5,7 +5,4 @@ use Jaf;
 class Base extends Jaf\base\Service
 {
 
-
-
-
 }

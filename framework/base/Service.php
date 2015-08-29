@@ -4,6 +4,8 @@ use Jaf;
 
 class Service
 {
+    public $basePath = '';
+
     protected static $_coreComponents = array();
 
     public $controllerNamespace = '';
@@ -15,6 +17,16 @@ class Service
         }
 
         $this->init();
+    }
+
+    public function setBasePath($path)
+    {
+        $this->basePath = $path;
+    }
+
+    public function getBasePath()
+    {
+        return $this->basePath;
     }
 
     public function init()

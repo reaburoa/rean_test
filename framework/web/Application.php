@@ -7,16 +7,6 @@ class Application extends \Jaf\base\Application
 {
     private static $_basePath = '';
 
-    public function setBasePath($path)
-    {
-        self::$_basePath = $path;
-    }
-
-    public static function getBasePath()
-    {
-        return self::$_basePath;
-    }
-
     public function coreComponents()
     {
         return array_merge(parent::coreComponents(), array(

@@ -8,11 +8,19 @@ abstract class Application extends Jaf\base\Base
     {
         parent::__construct($config);
         Jaf::$app = $this;
-        $this->preInit();
+        $this->preInit($config);
     }
 
-    public function preInit()
+    public function preInit(&$config)
     {
+        if (isset($config['basePath'])) {
+            self::setBasePath($config['basePath']);
+            unset($config['basePath']);
+        }
+        else {
+            throw new \Exception('The "basePath" configuration for Application is required.');
+        }
+
         foreach ($this->coreComponents() as $key => $components) {
             Jaf\base\Service::set($key, $components['class']);
         }
@@ -20,7 +28,7 @@ abstract class Application extends Jaf\base\Base
 
     public function setBasePath($path)
     {
-        //self::$_basePath = $path;
+        parent::setBasePath($path);
     }
 
     public function getRequest()
@@ -35,17 +43,16 @@ abstract class Application extends Jaf\base\Base
 
     abstract public function handleRequest($request);
 
-    public static function getBasePath()
+    public function getBasePath()
     {
-        //return self::$_basePath;
+        return parent::getBasePath();
     }
 
     public function run()
     {
         $request = $this->getRequest()->getRequest();
-        $module = $this->getUrlManager()->parseUrl($request);//print_r($module);exit;
+        $module = $this->getUrlManager()->parseUrl($request);
         $this->handleRequest($request);
-        //var_dump(Module::createController($module['controller']));
     }
 
     public function coreComponents()
