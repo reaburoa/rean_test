@@ -4,3 +4,5 @@
     require_once($jaf);
     $application = new Jaf\web\Application($config);
     $application->run();
+
+
