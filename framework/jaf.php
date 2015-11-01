@@ -5,3 +5,4 @@ class Jaf extends \Jaf\JafBase
 {
 
 }
+
