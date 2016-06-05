@@ -1,5 +1,6 @@
 <?php
 namespace Jaf\web;
+
 use Jaf;
 
 class UrlManager
@@ -12,10 +13,9 @@ class UrlManager
                 'action' => 'index'
             );
         }
-        if(strpos($route, '?') !== false){
+        if (strpos($route, '?') !== false) {
             $realUrlInfo = substr($route, 1, strpos($route, '?') - 1);
-        }
-        else{
+        } else {
             $realUrlInfo = substr($route, 1);
         }
         return explode('/', $realUrlInfo);

@@ -1,5 +1,6 @@
 <?php
 namespace Jaf\base;
+
 use Jaf;
 
 abstract class Application extends Jaf\base\Base
@@ -16,8 +17,7 @@ abstract class Application extends Jaf\base\Base
         if (isset($config['basePath'])) {
             self::setBasePath($config['basePath']);
             unset($config['basePath']);
-        }
-        else {
+        } else {
             throw new \Exception('The "basePath" configuration for Application is required.');
         }
 

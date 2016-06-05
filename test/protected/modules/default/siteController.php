@@ -1,5 +1,6 @@
 <?php
 namespace test\controller;
+
 use Jaf\web\Controller;
 
 class siteController extends Controller

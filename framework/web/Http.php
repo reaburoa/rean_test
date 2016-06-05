@@ -1,5 +1,6 @@
 <?php
 namespace Jaf\web;
+
 use Jaf;
 
 class Http
@@ -9,10 +10,9 @@ class Http
 
     public function getRequest($route = '')
     {
-        if(!$route){
+        if (!$route) {
             $this->_route = $_SERVER['REQUEST_URI'];
-        }
-        else{
+        } else {
             $this->_route = $route;
         }
 

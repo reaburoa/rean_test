@@ -1,5 +1,6 @@
 <?php
 namespace Jaf\auth;
+
 use Jaf;
 
 class User

@@ -1,5 +1,6 @@
 <?php
 namespace Jaf\web;
+
 use Jaf;
 
 class Controller implements \Jaf\base\Controller

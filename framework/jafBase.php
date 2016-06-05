@@ -13,13 +13,12 @@ class JafBase
 
     public static function autoload($className)
     {
-        if(isset(self::$autoLoadFiles[$className])){
+        if (isset(self::$autoLoadFiles[$className])) {
             $classFiles = JAF_PATH.self::$autoLoadFiles[$className];
-        }
-        else{
+        } else {
             return;
         }
-        include($classFiles);
+        require($classFiles);
     }
 
     public static function configure($object, $properties)
@@ -34,8 +33,7 @@ class JafBase
     {
         if (is_string($type)) {
             return Base::get($type);
-        }
-        else {
+        } else {
             return Base::get($type['class']);
         }
     }

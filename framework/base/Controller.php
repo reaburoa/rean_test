@@ -1,5 +1,6 @@
 <?php
 namespace Jaf\base;
+
 use Jaf;
 
 interface Controller
